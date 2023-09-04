@@ -82,6 +82,7 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
 
                     productVM.Product.ImageUrl = @"\images\product\" + fileName;
                 }
+
                 if(productVM.Product.Id == 0) //ADDING
                 {
                     _unitOfWork.Product.Add(productVM.Product);
@@ -92,7 +93,6 @@ namespace BulkyBookWeb.Areas.Admin.Controllers
                 }
 
 
-                _unitOfWork.Product.Add(productVM.Product);//ADDING
                 _unitOfWork.Save();
                 TempData["success"] = "Product added successfully.";
                 return RedirectToAction("Index");
